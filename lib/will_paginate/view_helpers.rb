@@ -23,8 +23,8 @@ module WillPaginate
     # default options that can be overridden on the global level
     @@pagination_options = {
       :class          => 'pagination',
-      :previous_label => '&laquo; Previous',
-      :next_label     => 'Next &raquo;',
+      :previous_label => I18n.t('will_paginate.previous_label'), # '&laquo; Previous'
+      :next_label     => I18n.t('will_paginate.next_label'), # 'Next &raquo;'
       :inner_window   => 4, # links around the current page
       :outer_window   => 1, # links around beginning and end
       :separator      => ' ', # single space is friendly to spiders and non-graphic browsers
@@ -165,22 +165,15 @@ module WillPaginate
     #   <%= page_entries_info @posts, :entry_name => 'item' %>
     #   #-> Displaying items 6 - 10 of 26 in total
     def page_entries_info(collection, options = {})
-      entry_name = options[:entry_name] ||
-        (collection.empty?? 'entry' : collection.first.class.name.underscore.sub('_', ' '))
+      entry_name = options[:entry_name] || 
+                    (collection.empty?? 'entry' : collection.first.class.human_name)
       
-      if collection.total_pages < 2
-        case collection.size
-        when 0; "No #{entry_name.pluralize} found"
-        when 1; "Displaying <b>1</b> #{entry_name}"
-        else;   "Displaying <b>all #{collection.size}</b> #{entry_name.pluralize}"
-        end
-      else
-        %{Displaying #{entry_name.pluralize} <b>%d&nbsp;-&nbsp;%d</b> of <b>%d</b> in total} % [
-          collection.offset + 1,
-          collection.offset + collection.length,
-          collection.total_entries
-        ]
-      end
+      I18n.t("will_paginate.page_entries_info", 
+          :count => collection.size, 
+          :entry_name => (collection.size == 1) ? entry_name : entry_name.pluralize, 
+          :start => collection.offset.succ, 
+          :end => collection.offset + collection.size, 
+          :total => collection.total_entries)
     end
 
     def self.total_pages_for_collection(collection) #:nodoc:
