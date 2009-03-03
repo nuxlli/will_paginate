@@ -1,0 +1,9 @@
+en:
+  will_paginate:
+    previous_label: "&laquo; Previous"
+    next_label: "Next &raquo;"
+    page_entries_info_one_page:
+      zero: "No {{entry_name}} found"
+      one: "Displaying <b>1</b> {{entry_name}}"
+      other: "Displaying <b>all {{total}}</b> {{entry_name}}"
+    page_entries_info_multi_page: "Displaying {{entry_name}} <b>{{start}}&nbsp;-&nbsp;{{end}}</b> of <b>{{total}}</b> in total"

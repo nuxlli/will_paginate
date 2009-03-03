@@ -1,0 +1,9 @@
+pt-BR:
+  will_paginate:
+    previous_label: "&laquo; Anterior"
+    next_label: "Próximo &raquo;"
+    page_entries_info_one_page:
+      zero:  "Nenhum registro encontrado para {{entry_name}}"
+      one:   "Mostrando <b>1</b> {{entry_name}}"
+      other: "Mostrando <b>todos os {{total}}</b> regitros de {{entry_name}}"
+    page_entries_info_multi_page: "Mostrando {{entry_name}} <b>{{start}}&nbsp;-&nbsp;{{end}}</b> de um total de <b>{{total}}</b>"

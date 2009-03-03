@@ -168,9 +168,9 @@ module WillPaginate
       entry_name = options[:entry_name] || 
                     (collection.empty?? 'entry' : collection.first.class.human_name)
       
-      I18n.t("will_paginate.page_entries_info", 
+      I18n.t("will_paginate.page_entries_info_#{collection.total_pages < 2 ? "one_page" : "multi_page" }", 
           :count => collection.size, 
-          :entry_name => (collection.size == 1) ? entry_name : entry_name.pluralize, 
+          :entry_name => (collection.total_entries == 1) ? entry_name : entry_name.pluralize, 
           :start => collection.offset.succ, 
           :end => collection.offset + collection.size, 
           :total => collection.total_entries)

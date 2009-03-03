@@ -1,8 +1,0 @@
-"es-AR":
-  will_paginate:
-    previous_label: "&laquo; Anterior"
-    next_label: "Siguiente &raquo;"
-    page_entries_info:
-      zero: "No se encontr&oacute; {{entry_name}}"
-      one: "Mostrando <b>1</b> {{entry_name}}"
-      other: "Mostrando {{entry_name}} <b>{{start}}&nbsp;-&nbsp;{{end}}</b> de <b>{{total}}</b> en total"
